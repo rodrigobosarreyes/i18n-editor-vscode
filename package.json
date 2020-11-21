@@ -10,16 +10,36 @@
 		"Other"
 	],
 	"activationEvents": [
-		"onCommand:i18n-editor-rb.helloWorld"
+		"onCommand:i18n-editor-rb.helloWorld",
+    "onView:i18nEditor"
 	],
 	"main": "./dist/extension.js",
 	"contributes": {
-		"commands": [
-			{
-				"command": "i18n-editor-rb.helloWorld",
-				"title": "Hello World"
-			}
-		]
+    "viewsWelcome": [
+      {
+        "view": "i18nEditor",
+        "contents": "No i18n found."
+      }
+    ],
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "i18nEditor",
+          "title": "I18n Editor",
+          "icon": "media/dep.svg"
+        }
+      ]
+    },
+    "views": {
+      "i18nEditor": [
+        {
+          "id": "i18nEditor",
+          "name": "I18n Editor",
+          "icon": "media/dep.svg",
+          "contextualTitle": "I18n Editor"
+        }
+      ]
+    }
 	},
 	"scripts": {
 		"vscode:prepublish": "npm run package",
